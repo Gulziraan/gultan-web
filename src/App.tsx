@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {FC} from 'react';
+import {ToastContainer} from 'react-toastify';
 import './App.css';
+import {Route, Routes} from "react-router-dom";
+import PrivateOutlet from "./utils/PrivateOutlet";
+import Users from "./pages/Users";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import {CssBaseline} from "@mui/material";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App: FC = () => {
+
+    return (
+        <>
+            <CssBaseline/>
+            <ToastContainer/>
+            <Routes>
+                <Route path="/" element={<PrivateOutlet />}>
+                    <Route index element={<Users />} />
+                </Route>
+                <Route path='login' element={<Login/>}/>
+                <Route path='register' element={<Register/>}/>
+            </Routes>
+        </>
+    );
 }
 
 export default App;
