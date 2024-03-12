@@ -1,38 +1,17 @@
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
 import {object, string, TypeOf} from "zod";
 import {authApi} from "../store/api/authApi";
 import {toast} from "react-toastify";
 import {useLocation, useNavigate} from "react-router-dom";
 import {FormProvider, SubmitHandler, useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
-import {Box, Container, Link, styled, Typography} from "@mui/material";
-import {LoadingButton as _LoadingButton} from '@mui/lab';
+import {Box, Container, Typography} from "@mui/material";
+import {LoadingButton} from '../components/UI/loading-button.ts';
+import {LinkItem} from '../components/UI/link-item.ts'
 import FormInput from "../components/UI/FormInput";
-import Register from "./Register";
 import {setAccessToken, setUser} from "../store/reducers/userSlice";
 import {useAppDispatch} from "../hooks/redux";
 
-const LoadingButton = styled(_LoadingButton)`
-    padding: 0.6rem 0;
-    background-color: #f9d13e;
-    color: #2363eb;
-    font-weight: 500;
-
-    &:hover {
-        background-color: #ebc22c;
-        transform: translateY(-2px);
-    }
-`;
-
-const LinkItem = styled(Link)`
-    text-decoration: none;
-    color: #2363eb;
-    cursor: pointer;
-
-    &:hover {
-        text-decoration: underline;
-    }
-`;
 
 const loginSchema = object({
     userName: string().min(1, 'Full name is required').max(100),
@@ -60,7 +39,6 @@ const Login = () => {
 
     useEffect(() => {
         if (isSuccess) {
-            console.log('It was successful');
             if(data){
                 dispatch(setUser(data.user));
                 dispatch(setAccessToken(data.accessToken));

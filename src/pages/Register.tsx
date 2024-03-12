@@ -1,34 +1,14 @@
 import {Box, Container, Typography} from '@mui/material';
-import {styled} from '@mui/material/styles';
 import {FormProvider, SubmitHandler, useForm} from 'react-hook-form';
 import {object, string, TypeOf} from 'zod';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {useEffect} from 'react';
-import {Link, useNavigate} from 'react-router-dom';
-import {LoadingButton as _LoadingButton} from '@mui/lab';
+import {useNavigate} from 'react-router-dom';
+import {LoadingButton} from '../components/UI/loading-button.ts';
+import {LinkItem} from '../components/UI/link-item.ts';
 import {toast} from 'react-toastify';
 import {authApi} from "../store/api/authApi";
 import FormInput from "../components/UI/FormInput";
-const LoadingButton = styled(_LoadingButton)`
-    padding: 0.6rem 0;
-    background-color: #f9d13e;
-    color: #2363eb;
-    font-weight: 500;
-
-    &:hover {
-        background-color: #ebc22c;
-        transform: translateY(-2px);
-    }
-`;
-
-const LinkItem = styled(Link)`
-    text-decoration: none;
-    color: #2363eb;
-
-    &:hover {
-        text-decoration: underline;
-    }
-`;
 
 const registerSchema = object({
     userName: string().min(1, 'Full name is required').max(100),
@@ -53,7 +33,7 @@ const Register = () => {
     });
 
     // 👇 Calling the Register Mutation
-    const [registerUser, {isLoading, isSuccess, error, isError, data}] =
+    const [registerUser, {isLoading, isSuccess, error, isError}] =
         authApi.useRegisterUserMutation();
 
     const navigate = useNavigate();
@@ -93,7 +73,6 @@ const Register = () => {
     }, [isSubmitSuccessful]);
 
     const onSubmitHandler: SubmitHandler<RegisterInput> = (values) => {
-        // 👇 Executing the RegisterUser Mutation
         registerUser(values);
     };
 
@@ -144,7 +123,7 @@ const Register = () => {
                         />
                         <Typography sx={{fontSize: '0.9rem', mb: '1rem'}}>
                             Already have an account?{' '}
-                            <LinkItem to='/login'>Login Here</LinkItem>
+                            <LinkItem onClick={() => navigate('/login')}>Login Here</LinkItem>
                         </Typography>
 
                         <LoadingButton

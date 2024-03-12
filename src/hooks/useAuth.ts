@@ -1,8 +1,6 @@
 import {useAppDispatch, useAppSelector} from "./redux";
 import {useMemo} from "react";
-import {selectCurrentUser, setAccessToken, setUser} from "../store/reducers/userSlice";
-import {userApi} from "../store/api/userApi";
-import IUser from "../models/IUser";
+import {selectCurrentUser, setAccessToken} from "../store/reducers/userSlice";
 
 export const useAuth = () => {
     const dispatch = useAppDispatch();
@@ -11,7 +9,6 @@ export const useAuth = () => {
         const token = localStorage.getItem("accessToken")
         dispatch(setAccessToken(token!))
     }
-    console.log(user)
 
     return useMemo(() => ({ user }), [user])
 }

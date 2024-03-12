@@ -23,11 +23,10 @@ export const authApi = createApi({
                     url: 'Auth/login',
                     method: 'POST',
                     body: data,
-                    credentials: 'include',
                 };
             },
         }),
-        logout: builder.query({
+        logout: builder.mutation<void, void>({
             query() {
                 return {
                     url: 'Auth/logout',

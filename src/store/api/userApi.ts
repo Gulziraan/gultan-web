@@ -6,18 +6,10 @@ export const userApi = createApi({
     reducerPath: 'userApi',
     baseQuery: customFetchBase,
     endpoints: (builder) => ({
-        getUsers: builder.query<IUser[], undefined>({
-            query: () => {
+        getMe: builder.mutation<IUser, void>({
+            query() {
                 return {
-                    url: 'Auth/users',
-                    method: 'GET',
-                };
-            },
-        }),
-        getUser: builder.query({
-            query: () => {
-                return {
-                    url: 'Auth/user',
+                    url: 'Users/get-me',
                     method: 'GET',
                 };
             },

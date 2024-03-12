@@ -1,7 +1,6 @@
 import IUser from "../../models/IUser";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {RootState} from "../store";
-import {AuthResponse} from "../../models/response/AuthResponse";
 
 interface UserState {
     user: IUser;
@@ -12,6 +11,9 @@ interface UserState {
 
 const initialState: UserState = {
     user: {
+        name: '',
+        surName: '',
+        phoneNumber: '',
         userName: '',
         email: '',
         id: -1,
