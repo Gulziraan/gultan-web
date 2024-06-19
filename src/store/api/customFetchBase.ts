@@ -5,10 +5,8 @@ import {AuthResponse} from "../../models/response/AuthResponse";
 import {RootState} from "../store";
 import {HttpStatusCode} from "axios";
 
-const baseUrl = "https://localhost:5001/";
+const baseUrl = import.meta.env.VITE_API_URL;
 
-// Create a new mutex
-// create a new mutex
 const mutex = new Mutex()
 const baseQuery = fetchBaseQuery({
     baseUrl,
@@ -28,11 +26,9 @@ const customFetchBase: BaseQueryFn<
     unknown,
     FetchBaseQueryError
 > = async (args, api, extraOptions) => {
-    // wait until the mutex is available without locking it
     await mutex.waitForUnlock()
     let result = await baseQuery(args, api, extraOptions)
     if (result.error && result.error.status === HttpStatusCode.Unauthorized) {
-        // checking whether the mutex is locked
         if (!mutex.isLocked()) {
             const release = await mutex.acquire()
             try {
@@ -48,14 +44,12 @@ const customFetchBase: BaseQueryFn<
                     result = await baseQuery(args, api, extraOptions)
                 } else {
                     api.dispatch(logout)
-                    window.location.href = window.location.href + "login"
+                    window.location.href = "/login"
                 }
             } finally {
-                // release must be called once the mutex should be released again.
                 release()
             }
         } else {
-            // wait until the mutex is available without locking it
             await mutex.waitForUnlock()
             result = await baseQuery(args, api, extraOptions)
         }

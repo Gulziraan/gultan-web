@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 import {object, string, TypeOf} from "zod";
-import {authApi} from "../store/api/authApi";
+import {useLoginUserMutation} from "../store/api/authApi";
 import {toast} from "react-toastify";
 import {useLocation, useNavigate} from "react-router-dom";
 import {FormProvider, SubmitHandler, useForm} from "react-hook-form";
@@ -8,7 +8,7 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {Box, Container, Typography} from "@mui/material";
 import {LoadingButton} from '../components/UI/loading-button.ts';
 import {LinkItem} from '../components/UI/link-item.ts'
-import FormInput from "../components/UI/FormInput";
+import FormInput from "../components/UI/FormInput/FormInput.tsx";
 import {setAccessToken, setUser} from "../store/reducers/userSlice";
 import {useAppDispatch} from "../hooks/redux";
 
@@ -30,7 +30,7 @@ const Login = () => {
     const dispatch = useAppDispatch()
 
     const [loginUser, {isLoading, isError, error, isSuccess, data}] =
-        authApi.useLoginUserMutation();
+        useLoginUserMutation();
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -75,7 +75,6 @@ const Login = () => {
     }, [isSubmitSuccessful]);
 
     const onSubmitHandler: SubmitHandler<LoginInput> = (values) => {
-        // 👇 Executing the loginUser Mutation
         loginUser(values);
     };
 
@@ -103,15 +102,13 @@ const Login = () => {
                     component='h2'
                     sx={{color: '#e5e7eb', mb: 2}}
                 >
-                    Login to have access!
+                    Войдите, чтобы получить доступ!
                 </Typography>
 
                 <FormProvider {...methods}>
                     <Box
                         component='form'
                         onSubmit={handleSubmit(onSubmitHandler)}
-                        noValidate
-                        autoComplete='off'
                         maxWidth='27rem'
                         width='100%'
                         sx={{
@@ -120,8 +117,8 @@ const Login = () => {
                             borderRadius: 2,
                         }}
                     >
-                        <FormInput name='userName' label='User name' type='text'/>
-                        <FormInput name='password' label='Password' type='password'/>
+                        <FormInput name='userName' label='Имя пользователя' type='text'/>
+                        <FormInput name='password' label='Пароль' type='password'/>
 
                         <Typography
                             sx={{fontSize: '0.9rem', mb: '1rem', textAlign: 'right'}}
@@ -136,11 +133,11 @@ const Login = () => {
                             type='submit'
                             loading={isLoading}
                         >
-                            Login
+                            Войти
                         </LoadingButton>
 
                         <Typography sx={{fontSize: '0.9rem', mt: '1rem'}}>
-                            Need an account? <LinkItem onClick={() => navigate('/register')}>Sign Up Here</LinkItem>
+                            Нужен аккаунт? <LinkItem onClick={() => navigate('/register')}>Регистрация здесь</LinkItem>
                         </Typography>
                     </Box>
                 </FormProvider>

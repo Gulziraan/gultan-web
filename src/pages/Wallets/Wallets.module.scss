@@ -1,0 +1,32 @@
+@import 'src/shared/styles/styles';
+
+.wallets {
+  @include containerPadding;
+}
+
+.newWallet {
+  display: flex;
+  justify-content: space-evenly;
+
+  .form {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    flex-direction: column;
+    button{
+      border: 1px solid black;
+      padding: 6px 30px;
+      background-color: inherit;
+      align-self: flex-end;
+      margin-top: 40px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  }
+
+  h2{
+    color: #616817;
+    font-size: 30px;
+    margin-bottom: 50px;
+  }
+}

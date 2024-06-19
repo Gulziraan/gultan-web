@@ -2,8 +2,8 @@ import {styled} from "@mui/material";
 import {LoadingButton as _LoadingButton} from "@mui/lab";
 export const LoadingButton = styled(_LoadingButton)`
     padding: 0.6rem 0;
-    background-color: #f9d13e;
-    color: #2363eb;
+    background-color: #001a7a;
+    color: #fafafa;
     font-weight: 500;
 
     &:hover {

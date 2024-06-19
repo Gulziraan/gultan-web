@@ -1,0 +1,94 @@
+@import 'src/shared/styles/styles';
+
+.homePage{
+  height: 100vh;
+  h2{
+    font-family: "Arizonia", sans-serif;
+    position: absolute;
+    top: 61%;
+    left: 17%;
+    font-size: 70px;
+    color: #616817;
+    span{
+      font-size: 20px
+    }
+  }
+}
+
+.otherInfo {
+  display: flex;
+  background-color: #fff;
+  font-family: 'Arizonia', sans-serif !important;
+
+  .stickySidebar {
+    padding: 150px 20px 100px 100px;
+    position: sticky;
+    height: fit-content;
+    top: 0;
+  }
+
+  .scrollableContent {
+    margin-left: 20px;
+    width: 100%;
+    background-color: #fff;
+    flex-grow: 1;
+
+    section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      img {
+        width: 50vw;
+        display: flex;
+        justify-content: center;
+      }
+      .zagolovok {
+        font-size: 60px;
+        display: flex;
+        justify-content: center;
+        color: #616817;
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+
+.footer {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  .images {
+    display: flex;
+    flex-direction: column;
+    img{
+      width: 40vw;
+      margin-top: 50px;
+      margin-left: 50px;
+    }
+  }
+}
+
+.textWithVopros {
+  .forWhat{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    p{
+      font-family: 'Arizonia', sans-serif !important;
+      font-size: 60px;
+      color: #5E6056;
+      width: 280px
+    }
+  }
+
+  .useAll{
+    font-family: 'Arizonia', sans-serif !important;
+    font-size: 30px;
+    color: #616817;
+    width: 300px;
+    text-align: right;
+    margin: 100px 0 0 150px;
+  }
+}

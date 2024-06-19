@@ -1,0 +1,10 @@
+@import "src/shared/styles/styles";
+
+.profile {
+  @include containerPadding;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}

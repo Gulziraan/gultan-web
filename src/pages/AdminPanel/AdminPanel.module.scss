@@ -1,0 +1,11 @@
+@import "src/shared/styles/styles";
+
+.admin {
+  .inputs{
+    display: flex;
+    margin-top: 10px;
+    div{
+      margin-right: 10px;
+    }
+  }
+}

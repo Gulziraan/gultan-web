@@ -18,6 +18,7 @@ const initialState: UserState = {
         email: '',
         id: -1,
         isActivated: false,
+        isAdmin: false
     },
     accessToken: '',
     isLoading: false,
@@ -28,14 +29,13 @@ export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        logout: () => {
-            localStorage.removeItem("accessToken");
+        logout: (state) => {
+            state.accessToken = '';
         },
         setUser: (state, action: PayloadAction<IUser>) => {
             state.user = action.payload;
         },
         setAccessToken: (state, action: PayloadAction<string>) => {
-            localStorage.setItem("accessToken", action.payload);
             state.accessToken = action.payload;
         },
     }
@@ -43,5 +43,9 @@ export const userSlice = createSlice({
 
 export default userSlice.reducer;
 
-export const { logout, setUser, setAccessToken} = userSlice.actions;
+export const {
+    logout,
+    setUser,
+    setAccessToken
+} = userSlice.actions;
 export const selectCurrentUser = (state: RootState) => state.userState

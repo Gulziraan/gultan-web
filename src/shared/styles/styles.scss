@@ -1,0 +1,8 @@
+@mixin containerPadding {
+  $padding: max(calc(100vw - 960px)/2, 16px);
+  padding: 20px $padding 0;
+}
+
+.flex {
+  display: flex;
+}

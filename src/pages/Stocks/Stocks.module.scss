@@ -1,0 +1,17 @@
+@import 'src/shared/styles/styles';
+
+.stocks {
+  @include containerPadding;
+
+  h1{
+    border: 1px solid #616817;
+    color: #616817;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+    margin-bottom: 10px;
+  }
+}

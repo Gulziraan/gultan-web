@@ -1,0 +1,9 @@
+@import "src/shared/styles/styles";
+
+.wallet {
+  @include containerPadding;
+}
+
+.buttons {
+  display: flex;
+}

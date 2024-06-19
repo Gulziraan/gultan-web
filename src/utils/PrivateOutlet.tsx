@@ -1,7 +1,7 @@
 import {Navigate, Outlet, useLocation} from "react-router-dom";
 import {useAuth} from "../hooks/useAuth";
 import {FC} from "react";
-import Header from "../components/Header.tsx";
+import footerImg from "../assets/footer.png";
 
 const PrivateOutlet:FC = () => {
     const auth = useAuth()
@@ -13,8 +13,8 @@ const PrivateOutlet:FC = () => {
 
     return (
         <>
-            <Header/>
             <Outlet/>
+            <img style={{width: '100%', padding: '0', marginTop: '50px'}} src={footerImg} alt=""/>
         </>
     );
 };

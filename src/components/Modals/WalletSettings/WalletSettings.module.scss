@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  position: absolute;
+  justify-content: space-evenly;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 20px;
+  background-color: white;
+  width: 60vw;
+  h2{
+    color: #616817;
+    font-size: 30px;
+    margin: 40px 0 30px;
+  }
+}
+
+.walletSettings {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+  button{
+    align-self: flex-end;
+  }
+}

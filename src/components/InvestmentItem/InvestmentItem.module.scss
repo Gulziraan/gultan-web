@@ -1,0 +1,10 @@
+.buttons {
+  display: flex;
+  button{
+    outline: none;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    margin-left: 5px;
+  }
+}

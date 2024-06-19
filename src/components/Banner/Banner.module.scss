@@ -1,0 +1,21 @@
+.homePage{
+  background-image: url('src/assets/fon.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  font-family: "Arizonia", cursive;
+  font-weight: 400;
+  background-attachment: fixed;
+  h2{
+    font-family: "Arizonia", sans-serif;
+    position: absolute;
+    top: 61%;
+    left: 17%;
+    font-size: 70px;
+    color: #616817;
+    span{
+      font-size: 20px
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.successAdded {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 50px;
+  button {
+    border: 1px solid black;
+    border-radius: 2px;
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: inherit;
+    align-self: flex-end;
+    margin-top: 5px;
+    cursor: pointer;
+  }
+}

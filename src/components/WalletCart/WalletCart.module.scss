@@ -1,0 +1,51 @@
+.walletCart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Arizonia', sans-serif;
+  font-style: normal;
+  height: 38vh;
+  .content {
+    border-radius: 50%;
+    border: 1px solid #616817;
+    width: 25vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+
+    .info {
+      text-align: left;
+      color: #616817;
+      p{
+        text-wrap: wrap;
+      }
+    }
+
+    .title {
+      margin-bottom: 30px;
+
+    }
+    h1{
+      font-family: 'Arizonia', sans-serif;
+      color: #616817;
+      font-weight: 600;
+    }
+    hr{
+      width: 100%;
+    }
+  }
+
+}
+
+.walletIcon {
+  height: 25vh;
+}
+
+.moneyIcon {
+  height: 10vh;
+  margin-left: 100px;
+  border-right: 30px;
+}

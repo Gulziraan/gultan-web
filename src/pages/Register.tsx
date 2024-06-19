@@ -7,8 +7,8 @@ import {useNavigate} from 'react-router-dom';
 import {LoadingButton} from '../components/UI/loading-button.ts';
 import {LinkItem} from '../components/UI/link-item.ts';
 import {toast} from 'react-toastify';
-import {authApi} from "../store/api/authApi";
-import FormInput from "../components/UI/FormInput";
+import {useRegisterUserMutation} from "../store/api/authApi";
+import FormInput from "../components/UI/FormInput/FormInput.tsx";
 
 const registerSchema = object({
     userName: string().min(1, 'Full name is required').max(100),
@@ -34,7 +34,7 @@ const Register = () => {
 
     // 👇 Calling the Register Mutation
     const [registerUser, {isLoading, isSuccess, error, isError}] =
-        authApi.useRegisterUserMutation();
+        useRegisterUserMutation();
 
     const navigate = useNavigate();
 
@@ -96,7 +96,7 @@ const Register = () => {
                 }}
             >
                 <Typography component='h2' sx={{color: '#e5e7eb', mb: 2}}>
-                    Sign Up To Get Started!
+                    Зарегистрируйтесь, чтобы начать!
                 </Typography>
 
                 <FormProvider {...methods}>
@@ -113,17 +113,17 @@ const Register = () => {
                             borderRadius: 2,
                         }}
                     >
-                        <FormInput name='userName' label='User name'/>
-                        <FormInput name='email' label='Email Address' type='email'/>
-                        <FormInput name='password' label='Password' type='password'/>
+                        <FormInput name='userName' label='Имя пользователя'/>
+                        <FormInput name='email' label='Почта' type='email'/>
+                        <FormInput name='password' label='Пароль' type='password'/>
                         <FormInput
                             name='passwordConfirm'
-                            label='Confirm Password'
+                            label='Подтвердите парль'
                             type='password'
                         />
                         <Typography sx={{fontSize: '0.9rem', mb: '1rem'}}>
-                            Already have an account?{' '}
-                            <LinkItem onClick={() => navigate('/login')}>Login Here</LinkItem>
+                            Уже есть аккаунт?{' '}
+                            <LinkItem onClick={() => navigate('/login')}>Войти здесь</LinkItem>
                         </Typography>
 
                         <LoadingButton
@@ -134,7 +134,7 @@ const Register = () => {
                             type='submit'
                             loading={isLoading}
                         >
-                            Sign Up
+                            Регистрация
                         </LoadingButton>
                     </Box>
                 </FormProvider>

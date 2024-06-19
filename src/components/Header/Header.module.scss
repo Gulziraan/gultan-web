@@ -1,0 +1,67 @@
+.header {
+  position: relative;
+  width: 100%;
+  z-index: 10;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 16px 0 100px;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.title {
+  cursor: pointer;
+  font-size: 40px;
+  margin: 0;
+  font-family: "Carattere", cursive;
+  font-weight: 400;
+  color: #616817
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.actionButton {
+  margin-right: 8px;
+}
+
+.actionButtons{
+  display: flex;
+  button {
+    margin-left: 20px;
+    border: none;
+    outline: none;
+    background-color: inherit;
+    font-size: 20px;
+    color: #616817;
+    cursor: pointer;
+  }
+}
+
+.buttons {
+  display: flex;
+}
+
+.buttons > button {
+  margin-left: 300px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #616817;
+  background-color: inherit;
+  font-size: 20px
+}
+
+.buttons > button:first-child {
+  margin-left: 0;
+}
