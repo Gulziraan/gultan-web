@@ -13,13 +13,14 @@ const columns: GridColDef[] = [
         headerName: 'Последняя цена',
         type: 'number',
         width: 120,
+        valueGetter: (value) => `${value}$`
     },
     {
         field: 'forecastPrice',
         headerName: 'Прогнозируемая цена',
         type: 'number',
         width: 120,
-        valueGetter: (value) => value > 0 ? value : '',
+        valueGetter: (value: number) => value > 0 ? `${value.toFixed(2)}$` : '',
     },
     {
         field: 'marketCap',

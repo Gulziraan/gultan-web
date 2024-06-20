@@ -6,7 +6,7 @@ const Banner = () => {
         <div className={cl.homePage}>
             <Header/>
             <h2>
-                Инвестируй с нами <span>оптимизируй свое время</span>
+                Инвестируй с нами <span>оптимизируй свои инвестиции</span>
             </h2>
         </div>
     );
